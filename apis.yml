@@ -1,17 +1,46 @@
 aid: thunder-client
 name: Thunder Client
 description: >-
-  Thunder Client provides API capabilities.
+  Thunder Client is a lightweight REST API client extension for Visual Studio
+  Code with a simple and clean interface for sending HTTP requests, managing
+  collections, and testing APIs without leaving the editor.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - API
+  - Clients
+  - VS Code
+  - REST Client
+  - API Testing
 url: >-
   https://raw.githubusercontent.com/api-evangelist/thunder-client/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-03-16'
+modified: '2026-03-27'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: thunder-client:thunder-client
+    name: Thunder Client
+    description: >-
+      Thunder Client is a lightweight REST API client extension for Visual Studio
+      Code with a simple and clean interface for sending HTTP requests, managing
+      collections, and testing APIs without leaving the editor.
+    humanURL: https://www.thunderclient.com
+    tags:
+      - Clients
+      - VS Code
+      - REST Client
+      - API Testing
+    properties:
+      - type: Documentation
+        url: https://github.com/thunderclient/thunder-client-support#readme
+      - type: Getting Started
+        url: https://www.thunderclient.com/docs
+common:
+  - type: Website
+    url: https://www.thunderclient.com
+  - type: Documentation
+    url: https://github.com/thunderclient/thunder-client-support#readme
+  - type: VS Code Marketplace
+    url: https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
