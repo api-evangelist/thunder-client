@@ -7,10 +7,10 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Clients
-  - VS Code
-  - REST Client
   - API Testing
+  - Clients
+  - REST Client
+  - VS Code
 url: >-
   https://raw.githubusercontent.com/api-evangelist/thunder-client/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -25,10 +25,10 @@ apis:
       collections, and testing APIs without leaving the editor.
     humanURL: https://www.thunderclient.com
     tags:
-      - Clients
-      - VS Code
-      - REST Client
       - API Testing
+      - Clients
+      - REST Client
+      - VS Code
     properties:
       - type: Documentation
         url: https://github.com/thunderclient/thunder-client-support#readme
