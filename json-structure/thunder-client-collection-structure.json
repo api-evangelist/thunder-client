@@ -1,0 +1,106 @@
+{
+  "title": "Thunder Client Collection Structure",
+  "description": "Structural documentation for Thunder Client collection and request data models",
+  "version": "2.40.10",
+  "created": "2026-05-03",
+  "structures": [
+    {
+      "name": "ThunderCollection",
+      "description": "A Thunder Client collection grouping related API requests",
+      "fields": [
+        { "name": "version", "type": "string", "required": true, "description": "Format version, e.g. '1.2'" },
+        { "name": "name", "type": "string", "required": true, "description": "Collection name" },
+        { "name": "description", "type": "string", "required": false, "description": "Collection description" },
+        { "name": "dateExported", "type": "string (ISO 8601)", "required": false, "description": "Export timestamp" },
+        { "name": "client", "type": "string", "required": false, "description": "Always 'Thunder Client'" },
+        { "name": "requests", "type": "array<ThunderRequest>", "required": true, "description": "All requests in the collection" },
+        { "name": "folders", "type": "array<ThunderFolder>", "required": false, "description": "Folder definitions for organization" }
+      ]
+    },
+    {
+      "name": "ThunderRequest",
+      "description": "A single HTTP or GraphQL request definition",
+      "fields": [
+        { "name": "_id", "type": "string (UUID)", "required": true, "description": "Unique request identifier" },
+        { "name": "colId", "type": "string", "required": true, "description": "Parent collection ID" },
+        { "name": "containerId", "type": "string", "required": false, "description": "Parent folder ID" },
+        { "name": "name", "type": "string", "required": true, "description": "Request display name" },
+        { "name": "url", "type": "string", "required": true, "description": "Request URL; supports {{variable}} interpolation" },
+        { "name": "method", "type": "string", "required": true, "description": "HTTP method: GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD" },
+        { "name": "sortNum", "type": "number", "required": false, "description": "Display sort order" },
+        { "name": "created", "type": "string (ISO 8601)", "required": false },
+        { "name": "modified", "type": "string (ISO 8601)", "required": false },
+        { "name": "headers", "type": "array<KeyValueItem>", "required": false, "description": "Request headers" },
+        { "name": "params", "type": "array<KeyValueItem>", "required": false, "description": "Query parameters" },
+        { "name": "body", "type": "RequestBody", "required": false, "description": "Request body (for POST/PUT/PATCH)" },
+        { "name": "auth", "type": "RequestAuth", "required": false, "description": "Authentication configuration" },
+        { "name": "tests", "type": "array<TestAssertion>", "required": false, "description": "Scriptless test assertions" },
+        { "name": "preScripts", "type": "array<string>", "required": false, "description": "Pre-request JavaScript scripts" },
+        { "name": "postScripts", "type": "array<string>", "required": false, "description": "Post-request JavaScript scripts" },
+        { "name": "settings", "type": "RequestSettings", "required": false, "description": "Per-request overrides" }
+      ]
+    },
+    {
+      "name": "RequestBody",
+      "description": "Request body configuration",
+      "fields": [
+        { "name": "type", "type": "string", "required": false, "description": "json | text | xml | formdata | formencoded | graphql | binary | none" },
+        { "name": "raw", "type": "string", "required": false, "description": "Raw body content for json/text/xml types" },
+        { "name": "form", "type": "array<KeyValueItem>", "required": false, "description": "Form fields for formdata/formencoded" },
+        { "name": "graphql", "type": "GraphQLBody", "required": false, "description": "GraphQL query and variables" }
+      ]
+    },
+    {
+      "name": "RequestAuth",
+      "description": "Authentication configuration for a request",
+      "fields": [
+        { "name": "type", "type": "string", "required": false, "description": "none | basic | bearer | oauth2 | apikey | digest | awsv4 | ntlm" },
+        { "name": "username", "type": "string", "required": false },
+        { "name": "password", "type": "string", "required": false },
+        { "name": "token", "type": "string", "required": false, "description": "Bearer token value" },
+        { "name": "key", "type": "string", "required": false, "description": "API key name" },
+        { "name": "value", "type": "string", "required": false, "description": "API key value" },
+        { "name": "placement", "type": "string", "required": false, "description": "header | query (for apikey type)" }
+      ]
+    },
+    {
+      "name": "TestAssertion",
+      "description": "A scriptless test assertion checking response data",
+      "fields": [
+        { "name": "type", "type": "string", "required": true, "description": "status | json | header | text | ms | size" },
+        { "name": "custom", "type": "string", "required": true, "description": "Field path or header name, e.g. 'json.data.id'" },
+        { "name": "action", "type": "string", "required": true, "description": "equals | notequals | isNull | notNull | contains | startsWith | endsWith | isType | lt | gt | lte | gte" },
+        { "name": "value", "type": "any", "required": true, "description": "Expected value for comparison" }
+      ]
+    },
+    {
+      "name": "KeyValueItem",
+      "description": "A name-value pair used for headers, parameters, and form fields",
+      "fields": [
+        { "name": "name", "type": "string", "required": true, "description": "Key name" },
+        { "name": "value", "type": "string", "required": true, "description": "Value; supports {{variable}} syntax" },
+        { "name": "isDisabled", "type": "boolean", "required": false, "default": false }
+      ]
+    },
+    {
+      "name": "ThunderEnvironment",
+      "description": "A Thunder Client environment file containing variable definitions",
+      "fields": [
+        { "name": "version", "type": "string", "required": true },
+        { "name": "name", "type": "string", "required": true, "description": "Environment name" },
+        { "name": "dateExported", "type": "string", "required": false },
+        { "name": "data", "type": "array<EnvironmentVariable>", "required": true, "description": "Variable definitions" }
+      ]
+    },
+    {
+      "name": "EnvironmentVariable",
+      "description": "A variable in a Thunder Client environment",
+      "fields": [
+        { "name": "name", "type": "string", "required": true, "description": "Variable name; referenced as {{name}} in requests" },
+        { "name": "value", "type": "string", "required": true, "description": "Variable value" },
+        { "name": "isSecret", "type": "boolean", "required": false, "default": false, "description": "If true, value is masked in the UI" },
+        { "name": "isDisabled", "type": "boolean", "required": false, "default": false }
+      ]
+    }
+  ]
+}

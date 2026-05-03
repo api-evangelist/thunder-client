@@ -1,0 +1,104 @@
+{
+  "version": "1.2",
+  "name": "Petstore API",
+  "description": "Example Thunder Client collection for a Petstore REST API",
+  "dateExported": "2026-05-03T00:00:00.000Z",
+  "client": "Thunder Client",
+  "folders": [
+    {
+      "_id": "f1a2b3c4-0001-0000-0000-000000000001",
+      "name": "Pets",
+      "colId": "c0l0c0c0-0000-0000-0000-000000000001",
+      "sortNum": 10000
+    },
+    {
+      "_id": "f1a2b3c4-0002-0000-0000-000000000002",
+      "name": "Store",
+      "colId": "c0l0c0c0-0000-0000-0000-000000000001",
+      "sortNum": 20000
+    }
+  ],
+  "requests": [
+    {
+      "_id": "req00001-0000-0000-0000-000000000001",
+      "colId": "c0l0c0c0-0000-0000-0000-000000000001",
+      "containerId": "f1a2b3c4-0001-0000-0000-000000000001",
+      "name": "List All Pets",
+      "url": "{{baseUrl}}/pets",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2026-05-03T00:00:00.000Z",
+      "modified": "2026-05-03T00:00:00.000Z",
+      "headers": [
+        { "name": "Accept", "value": "application/json" }
+      ],
+      "params": [
+        { "name": "status", "value": "available", "isDisabled": false }
+      ],
+      "tests": [
+        { "type": "status", "custom": "status", "action": "equals", "value": 200 },
+        { "type": "json", "custom": "json", "action": "isType", "value": "array" }
+      ]
+    },
+    {
+      "_id": "req00002-0000-0000-0000-000000000002",
+      "colId": "c0l0c0c0-0000-0000-0000-000000000001",
+      "containerId": "f1a2b3c4-0001-0000-0000-000000000001",
+      "name": "Get Pet by ID",
+      "url": "{{baseUrl}}/pets/{{petId}}",
+      "method": "GET",
+      "sortNum": 20000,
+      "headers": [
+        { "name": "Accept", "value": "application/json" }
+      ],
+      "tests": [
+        { "type": "status", "custom": "status", "action": "equals", "value": 200 },
+        { "type": "json", "custom": "json.id", "action": "notNull", "value": "" }
+      ]
+    },
+    {
+      "_id": "req00003-0000-0000-0000-000000000003",
+      "colId": "c0l0c0c0-0000-0000-0000-000000000001",
+      "containerId": "f1a2b3c4-0001-0000-0000-000000000001",
+      "name": "Create Pet",
+      "url": "{{baseUrl}}/pets",
+      "method": "POST",
+      "sortNum": 30000,
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{apiToken}}" }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Fluffy\",\n  \"status\": \"available\",\n  \"category\": \"cat\"\n}"
+      },
+      "tests": [
+        { "type": "status", "custom": "status", "action": "equals", "value": 201 },
+        { "type": "json", "custom": "json.id", "action": "notNull", "value": "" },
+        { "type": "json", "custom": "json.name", "action": "equals", "value": "Fluffy" }
+      ],
+      "postScripts": [
+        "tc.setVar('petId', tc.response.json.id);"
+      ]
+    },
+    {
+      "_id": "req00004-0000-0000-0000-000000000004",
+      "colId": "c0l0c0c0-0000-0000-0000-000000000001",
+      "containerId": "f1a2b3c4-0002-0000-0000-000000000002",
+      "name": "Get Inventory",
+      "url": "{{baseUrl}}/store/inventory",
+      "method": "GET",
+      "sortNum": 10000,
+      "auth": {
+        "type": "apikey",
+        "key": "api_key",
+        "value": "{{apiKey}}",
+        "placement": "header"
+      },
+      "tests": [
+        { "type": "status", "custom": "status", "action": "equals", "value": 200 },
+        { "type": "ms", "custom": "ms", "action": "lt", "value": 2000 }
+      ]
+    }
+  ]
+}

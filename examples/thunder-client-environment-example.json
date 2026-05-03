@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "name": "Petstore Development",
+  "dateExported": "2026-05-03T00:00:00.000Z",
+  "client": "Thunder Client",
+  "data": [
+    {
+      "name": "baseUrl",
+      "value": "https://petstore.swagger.io/v2",
+      "isSecret": false,
+      "isDisabled": false
+    },
+    {
+      "name": "apiKey",
+      "value": "my-dev-api-key-12345",
+      "isSecret": true,
+      "isDisabled": false
+    },
+    {
+      "name": "apiToken",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.dev-token",
+      "isSecret": true,
+      "isDisabled": false
+    },
+    {
+      "name": "petId",
+      "value": "",
+      "isSecret": false,
+      "isDisabled": false
+    }
+  ]
+}

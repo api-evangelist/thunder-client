@@ -1,0 +1,240 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.thunderclient.com/schema/collection",
+  "title": "Thunder Client Collection",
+  "description": "JSON Schema for a Thunder Client collection file containing API requests, folders, and metadata",
+  "type": "object",
+  "required": ["version", "name", "requests"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Thunder Client collection format version",
+      "examples": ["1.2"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Collection name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Collection description"
+    },
+    "dateExported": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the collection was exported"
+    },
+    "client": {
+      "type": "string",
+      "description": "Client identifier",
+      "const": "Thunder Client"
+    },
+    "requests": {
+      "type": "array",
+      "description": "Array of request definitions in the collection",
+      "items": { "$ref": "#/$defs/ThunderRequest" }
+    },
+    "folders": {
+      "type": "array",
+      "description": "Array of folder definitions for organizing requests",
+      "items": { "$ref": "#/$defs/ThunderFolder" }
+    }
+  },
+  "$defs": {
+    "ThunderRequest": {
+      "type": "object",
+      "required": ["_id", "colId", "name", "url", "method"],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "description": "Unique request identifier (UUID)"
+        },
+        "colId": {
+          "type": "string",
+          "description": "Collection ID this request belongs to"
+        },
+        "containerId": {
+          "type": "string",
+          "description": "Folder ID this request belongs to (if in a folder)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Request name"
+        },
+        "url": {
+          "type": "string",
+          "description": "Request URL; may contain environment variable references like {{baseUrl}}"
+        },
+        "method": {
+          "type": "string",
+          "enum": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"],
+          "description": "HTTP method"
+        },
+        "sortNum": {
+          "type": "number",
+          "description": "Sort order within the collection or folder"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "headers": {
+          "type": "array",
+          "description": "Request headers",
+          "items": { "$ref": "#/$defs/KeyValueItem" }
+        },
+        "params": {
+          "type": "array",
+          "description": "Query string parameters",
+          "items": { "$ref": "#/$defs/KeyValueItem" }
+        },
+        "body": {
+          "$ref": "#/$defs/RequestBody"
+        },
+        "auth": {
+          "$ref": "#/$defs/RequestAuth"
+        },
+        "tests": {
+          "type": "array",
+          "description": "Scriptless test assertions for this request",
+          "items": { "$ref": "#/$defs/TestAssertion" }
+        },
+        "preScripts": {
+          "type": "array",
+          "description": "Pre-request scripts (JavaScript)",
+          "items": { "type": "string" }
+        },
+        "postScripts": {
+          "type": "array",
+          "description": "Post-request scripts (JavaScript)",
+          "items": { "type": "string" }
+        },
+        "settings": {
+          "type": "object",
+          "description": "Per-request settings",
+          "properties": {
+            "followRedirects": { "type": "boolean" },
+            "timeout": { "type": "integer" },
+            "verifyCertificate": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "ThunderFolder": {
+      "type": "object",
+      "required": ["_id", "name", "colId"],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "description": "Unique folder identifier (UUID)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Folder name"
+        },
+        "colId": {
+          "type": "string",
+          "description": "Collection ID this folder belongs to"
+        },
+        "containerId": {
+          "type": "string",
+          "description": "Parent folder ID for nested folders"
+        },
+        "sortNum": {
+          "type": "number"
+        }
+      }
+    },
+    "KeyValueItem": {
+      "type": "object",
+      "required": ["name", "value"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Header or parameter name"
+        },
+        "value": {
+          "type": "string",
+          "description": "Header or parameter value; may contain {{variable}} references"
+        },
+        "isDisabled": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "RequestBody": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["json", "text", "xml", "formdata", "formencoded", "graphql", "binary", "none"],
+          "description": "Body content type"
+        },
+        "raw": {
+          "type": "string",
+          "description": "Raw body content (for json, text, xml types)"
+        },
+        "form": {
+          "type": "array",
+          "description": "Form fields (for formdata and formencoded types)",
+          "items": { "$ref": "#/$defs/KeyValueItem" }
+        },
+        "graphql": {
+          "type": "object",
+          "properties": {
+            "query": { "type": "string" },
+            "variables": { "type": "string" }
+          }
+        }
+      }
+    },
+    "RequestAuth": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["none", "basic", "bearer", "oauth2", "apikey", "digest", "awsv4", "ntlm"],
+          "description": "Authentication type"
+        },
+        "username": { "type": "string" },
+        "password": { "type": "string" },
+        "token": { "type": "string" },
+        "key": { "type": "string" },
+        "value": { "type": "string" },
+        "placement": {
+          "type": "string",
+          "enum": ["header", "query"],
+          "description": "Where to place the API key"
+        }
+      }
+    },
+    "TestAssertion": {
+      "type": "object",
+      "required": ["type", "custom", "action", "value"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["status", "json", "header", "text", "ms", "size"],
+          "description": "Assertion target type"
+        },
+        "custom": {
+          "type": "string",
+          "description": "Field path or header name to check (e.g., 'json.id', 'header.content-type')"
+        },
+        "action": {
+          "type": "string",
+          "enum": ["equals", "notequals", "isNull", "notNull", "contains", "notContains", "startsWith", "endsWith", "isType", "lt", "gt", "lte", "gte"],
+          "description": "Comparison operator"
+        },
+        "value": {
+          "description": "Expected value for comparison"
+        }
+      }
+    }
+  }
+}

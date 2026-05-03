@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.thunderclient.com/schema/environment",
+  "title": "Thunder Client Environment",
+  "description": "JSON Schema for a Thunder Client environment file containing variable key-value pairs for request parameterization",
+  "type": "object",
+  "required": ["version", "name", "data"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Thunder Client environment format version"
+    },
+    "name": {
+      "type": "string",
+      "description": "Environment name (e.g., 'Development', 'Staging', 'Production')"
+    },
+    "dateExported": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the environment was exported"
+    },
+    "client": {
+      "type": "string",
+      "const": "Thunder Client"
+    },
+    "data": {
+      "type": "array",
+      "description": "Array of environment variable key-value pairs",
+      "items": {
+        "type": "object",
+        "required": ["name", "value"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Variable name; referenced in requests as {{name}}"
+          },
+          "value": {
+            "type": "string",
+            "description": "Variable value"
+          },
+          "isSecret": {
+            "type": "boolean",
+            "default": false,
+            "description": "If true, the value is masked in the UI"
+          },
+          "isDisabled": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    }
+  }
+}

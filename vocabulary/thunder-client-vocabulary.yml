@@ -1,0 +1,168 @@
+name: Thunder Client Vocabulary
+description: >-
+  Domain vocabulary for Thunder Client, covering REST API testing concepts,
+  collections, environments, scripting, CLI operations, and testing constructs
+  within the Thunder Client VS Code extension and CLI tool.
+version: 2.40.10
+created: '2026-05-03'
+modified: '2026-05-03'
+tags:
+  - API Client
+  - API Testing
+  - CLI
+  - Collections
+  - REST Client
+  - VS Code
+
+categories:
+  - name: Core Concepts
+    description: Fundamental concepts in Thunder Client
+    terms:
+      - term: Request
+        definition: A single HTTP or GraphQL API call definition including method, URL, headers, body, and test assertions
+        type: Concept
+      - term: Collection
+        definition: A named group of requests organized for a specific API or workflow; can be run as a batch from the UI or CLI
+        type: Concept
+      - term: Folder
+        definition: A sub-grouping of requests within a collection for organizational purposes
+        type: Concept
+      - term: Environment
+        definition: A named set of key-value variable pairs that can be substituted into requests at runtime; enables switching between dev/staging/production configurations
+        type: Concept
+      - term: Variable
+        definition: A named placeholder in the format {{variableName}} that is replaced with a value from the active environment at request execution time
+        type: Concept
+      - term: Activity
+        definition: The request history log showing all previously executed requests with their responses
+        type: Concept
+      - term: Response
+        definition: The HTTP response from a request execution, including status code, headers, body, and timing
+        type: Concept
+
+  - name: Testing
+    description: Testing and assertion concepts in Thunder Client
+    terms:
+      - term: Scriptless Testing
+        definition: Thunder Client's GUI-based test assertion mechanism allowing response validation without writing JavaScript; uses dropdown rules (json, header, status, etc.)
+        type: Feature
+      - term: Assertion
+        definition: A test rule that checks a specific aspect of the API response (status code, header value, JSON field value, response time)
+        type: Concept
+      - term: Test Script
+        definition: Pre/post-request JavaScript code that can set environment variables, run assertions, or perform custom logic
+        type: Concept
+      - term: Pre-Request Script
+        definition: JavaScript executed before the request is sent; used to set dynamic variables or prepare request data
+        type: Concept
+      - term: Post-Request Script
+        definition: JavaScript executed after the response is received; used to extract values, set variables, or validate responses
+        type: Concept
+      - term: tc.setVar
+        definition: Scripting API method to set an environment variable value from within a script
+        syntax: "tc.setVar('variableName', value)"
+        type: ScriptingAPI
+      - term: tc.getVar
+        definition: Scripting API method to retrieve an environment variable value within a script
+        syntax: "tc.getVar('variableName')"
+        type: ScriptingAPI
+      - term: tc.test
+        definition: Scripting API method to add a named test assertion from a script
+        syntax: "tc.test('test name', () => { ... })"
+        type: ScriptingAPI
+
+  - name: CLI Commands
+    description: Thunder Client CLI (tc) command reference
+    terms:
+      - term: tc
+        definition: The Thunder Client CLI executable; installed globally via npm i -g @thunderclient/cli
+        type: Command
+      - term: tc list
+        definition: Lists all collections; optionally shows requests within a specific collection
+        syntax: "tc list [colName]"
+        type: Command
+      - term: tc list env
+        definition: Lists all environments defined in Thunder Client
+        syntax: "tc list env"
+        type: Command
+      - term: tc --col
+        definition: Runs all requests in a specified collection; supports comma-separated multiple collections or 'all' to run all collections
+        syntax: "tc --col 'colNameOrId'"
+        type: Command
+      - term: tc --fol
+        definition: Runs all requests in a specified folder within a collection
+        syntax: "tc --fol 'folNameOrId'"
+        type: Command
+      - term: tc --concurrent
+        definition: Runs requests in parallel with the specified concurrency level
+        syntax: "tc --col 'colName' --concurrent 5"
+        type: CommandFlag
+      - term: tc --stop-on-fail
+        definition: Stops collection execution when a request test assertion fails
+        syntax: "tc --col 'colName' --stop-on-fail"
+        type: CommandFlag
+      - term: tc --ui
+        definition: Opens a request in the Thunder Client UI and runs it automatically
+        syntax: "tc --ui"
+        type: CommandFlag
+      - term: Report Formats
+        definition: CLI report output formats supported by Thunder Client; cli, csv, html, json, xml, nunit
+        type: Feature
+
+  - name: Protocol Support
+    description: API protocols and formats supported by Thunder Client
+    terms:
+      - term: REST
+        definition: Primary HTTP REST API testing support with all methods (GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD)
+        type: Protocol
+      - term: GraphQL
+        definition: GraphQL query and mutation testing support with schema introspection
+        type: Protocol
+      - term: cURL
+        definition: Import and export of requests as cURL commands; Thunder Client CLI can execute cURL commands directly
+        type: Format
+
+  - name: Import/Export
+    description: Collection import and export formats supported by Thunder Client
+    terms:
+      - term: Postman Import
+        definition: Import collections and environments from Postman JSON format
+        type: ImportFormat
+      - term: Insomnia Import
+        definition: Import collections from Insomnia REST client format
+        type: ImportFormat
+      - term: Hoppscotch Import
+        definition: Import collections from Hoppscotch (formerly Postwoman) format
+        type: ImportFormat
+      - term: OpenAPI 3.0 Import
+        definition: Import API endpoints from OpenAPI 3.0 specification files
+        type: ImportFormat
+      - term: Thunder Client Format
+        definition: Native JSON collection format used by Thunder Client; uses array-based request body format for improved git diffs
+        type: NativeFormat
+
+  - name: Collaboration Features
+    description: Team and collaboration features in Thunder Client
+    terms:
+      - term: Git Sync
+        definition: Feature that saves Thunder Client request data (collections, environments) in the project's git repository for team sharing and version control
+        type: Feature
+      - term: Team Sync
+        definition: Pro/Enterprise feature for sharing collections and environments across team members via Thunder Client's sync service
+        type: Feature
+
+  - name: Pricing Tiers
+    description: Thunder Client subscription and pricing tiers
+    terms:
+      - term: Free Tier
+        definition: Basic local usage with limited collection runs; no team features
+        type: PricingTier
+        price: "$0/month"
+      - term: Pro Tier
+        definition: Individual pro tier adding team features, collections sync, and environment sharing
+        type: PricingTier
+        price: "$3/month"
+      - term: Enterprise Tier
+        definition: Full enterprise features with unlimited collection runs and team management
+        type: PricingTier
+        price: "$16/user/month"

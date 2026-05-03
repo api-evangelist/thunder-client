@@ -1,0 +1,136 @@
+{
+  "@context": {
+    "@vocab": "https://www.thunderclient.com/vocab#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "tc": "https://www.thunderclient.com/vocab#",
+
+    "ThunderCollection": {
+      "@id": "tc:ThunderCollection",
+      "rdfs:comment": "A Thunder Client collection grouping related API requests"
+    },
+    "ThunderRequest": {
+      "@id": "tc:ThunderRequest",
+      "rdfs:comment": "A single HTTP or GraphQL API request definition"
+    },
+    "ThunderFolder": {
+      "@id": "tc:ThunderFolder",
+      "rdfs:comment": "A folder organizing requests within a collection"
+    },
+    "ThunderEnvironment": {
+      "@id": "tc:ThunderEnvironment",
+      "rdfs:comment": "A set of key-value variables for request parameterization"
+    },
+    "TestAssertion": {
+      "@id": "tc:TestAssertion",
+      "rdfs:comment": "A scriptless test assertion on an API response"
+    },
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "created": "schema:dateCreated",
+    "modified": "schema:dateModified",
+    "dateExported": "schema:datePublished",
+
+    "method": {
+      "@id": "tc:httpMethod",
+      "rdfs:comment": "HTTP method (GET, POST, PUT, PATCH, DELETE, etc.)"
+    },
+    "headers": {
+      "@id": "tc:hasHeaders",
+      "@container": "@list"
+    },
+    "params": {
+      "@id": "tc:hasQueryParams",
+      "@container": "@list"
+    },
+    "body": {
+      "@id": "tc:hasBody",
+      "@type": "@id"
+    },
+    "auth": {
+      "@id": "tc:hasAuth",
+      "@type": "@id"
+    },
+    "tests": {
+      "@id": "tc:hasTests",
+      "@container": "@list"
+    },
+    "preScripts": {
+      "@id": "tc:hasPreScripts",
+      "@container": "@list"
+    },
+    "postScripts": {
+      "@id": "tc:hasPostScripts",
+      "@container": "@list"
+    },
+    "requests": {
+      "@id": "tc:hasRequests",
+      "@container": "@list"
+    },
+    "folders": {
+      "@id": "tc:hasFolders",
+      "@container": "@list"
+    },
+    "data": {
+      "@id": "tc:hasVariables",
+      "@container": "@list"
+    },
+
+    "assertionType": {
+      "@id": "tc:assertionType",
+      "rdfs:comment": "Assertion target: status | json | header | text | ms | size"
+    },
+    "assertionAction": {
+      "@id": "tc:assertionAction",
+      "rdfs:comment": "Comparison operator for an assertion"
+    },
+    "assertionValue": {
+      "@id": "tc:assertionValue"
+    },
+    "fieldPath": {
+      "@id": "tc:fieldPath",
+      "rdfs:comment": "JSON path or header name for assertion targeting"
+    },
+    "isSecret": {
+      "@id": "tc:isSecret",
+      "@type": "xsd:boolean"
+    },
+    "isDisabled": {
+      "@id": "tc:isDisabled",
+      "@type": "xsd:boolean"
+    },
+    "sortNum": {
+      "@id": "tc:sortOrder",
+      "@type": "xsd:decimal"
+    },
+    "collectionId": {
+      "@id": "tc:belongsToCollection",
+      "@type": "@id"
+    },
+    "folderId": {
+      "@id": "tc:belongsToFolder",
+      "@type": "@id"
+    },
+
+    "authType": {
+      "@id": "tc:authType",
+      "rdfs:comment": "Authentication type: none | basic | bearer | oauth2 | apikey"
+    },
+    "bodyType": {
+      "@id": "tc:bodyType",
+      "rdfs:comment": "Body content type: json | text | xml | formdata | graphql | binary | none"
+    },
+
+    "SoftwareApplication": "schema:SoftwareApplication",
+    "programmingLanguage": "schema:programmingLanguage",
+    "softwareVersion": "schema:softwareVersion",
+    "downloadUrl": "schema:downloadUrl",
+    "codeRepository": "schema:codeRepository",
+    "applicationCategory": "schema:applicationCategory",
+    "operatingSystem": "schema:operatingSystem"
+  }
+}
