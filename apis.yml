@@ -47,7 +47,7 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.thunderclient.com/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://docs.thunderclient.com/get-started
       - type: GitHub
         url: https://github.com/thunderclient/thunder-client-support
@@ -59,7 +59,7 @@ apis:
         url: https://docs.thunderclient.com/cli
       - type: Scripting API Reference
         url: https://docs.thunderclient.com/scripting/api
-      - type: Changelog
+      - type: ChangeLog
         url: https://github.com/thunderclient/thunder-client-support/releases
       - type: npm
         url: https://www.npmjs.com/package/@thunderclient/cli
@@ -115,7 +115,7 @@ common:
     url: https://www.thunderclient.com/pricing
   - type: npm
     url: https://www.npmjs.com/package/@thunderclient/cli
-  - type: Changelog
+  - type: ChangeLog
     url: https://github.com/thunderclient/thunder-client-support/releases
   - type: JSONSchema
     url: https://raw.githubusercontent.com/api-evangelist/thunder-client/refs/heads/main/json-schema/thunder-client-collection-schema.json
