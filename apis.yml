@@ -103,6 +103,8 @@ apis:
         url: https://www.npmjs.com/package/@thunderclient/cli
 
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/thunderclient
   - type: Website
     url: https://www.thunderclient.com
   - type: Documentation
