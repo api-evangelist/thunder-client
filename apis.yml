@@ -105,6 +105,8 @@ apis:
     url: https://www.npmjs.com/package/@thunderclient/cli
 
 common:
+- type: DomainSecurity
+  url: security/thunder-client-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/thunderclient
 - type: Website
