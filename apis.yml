@@ -28,6 +28,15 @@ tags:
 - API Testing
 - CI/CD
 - CLI
+- Collection
+- GraphQL
+- REST Client
+- VS Code
+tags_raw:
+- API Client
+- API Testing
+- CI/CD
+- CLI
 - Collections
 - GraphQL
 - REST Client
@@ -50,6 +59,13 @@ apis:
   humanURL: https://www.thunderclient.com
   baseURL: https://www.thunderclient.com
   tags:
+  - API Client
+  - API Testing
+  - Collection
+  - GraphQL
+  - REST Client
+  - VS Code
+  tags_raw:
   - API Client
   - API Testing
   - Collections
@@ -93,6 +109,12 @@ apis:
   humanURL: https://docs.thunderclient.com/cli
   baseURL: https://docs.thunderclient.com/cli
   tags:
+  - API Testing
+  - CI/CD
+  - CLI
+  - Collection
+  - Node.js
+  tags_raw:
   - API Testing
   - CI/CD
   - CLI
