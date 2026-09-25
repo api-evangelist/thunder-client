@@ -150,6 +150,8 @@ apis:
     url: https://www.npmjs.com/package/@thunderclient/cli
 
 common:
+- type: VendorFacets
+  url: vendor-facets/thunder-client-vendor-facets.yml
 - type: DomainSecurity
   url: security/thunder-client-domain-security.yml
 - type: LinkedIn
