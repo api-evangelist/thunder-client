@@ -12,14 +12,18 @@ description: >-
 type: Index
 deliveryModel:
   model: saas
-  open_source: false
+  license_evidence:
+    not_product:
+    - thunderclient/thunder-client-support
+  open_source: unknown
   commercial: true
   callable_host: false
   label: Hosted service · you call their endpoint
-  confidence: medium
+  confidence: low
   source:
   - pricing
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
@@ -68,7 +72,6 @@ apis:
     scripting, collection import from Postman/Insomnia/Hoppscotch/OpenAPI,
     and an advanced CLI supporting CI/CD pipelines.
   humanURL: https://www.thunderclient.com
-  baseURL: https://www.thunderclient.com
   tags:
   - API Client
   - API Testing
