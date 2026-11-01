@@ -64,107 +64,150 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Thunder Client is a lightweight REST API client extension for Visual Studio Code created by Ranga Vadhineni, providing a clean interface for sending HTTP requests, managing collections, and testing APIs without leaving the editor. With nearly 7 million installs, it pioneered GUI-based API testing in VS Code with 100% local storage, scriptless testing, Git Sync for team collaboration, GraphQL support, and an advanced CLI for CI/CD integration.
+Thunder Client is a lightweight REST API client extension for Visual Studio Code created by Ranga Vadhineni, providing a clean interface for sending HTTP requests, managing collections, and testing APIs without leaving the editor. With nearly 7 million installs, it pioneered GUI-based API testing in VS Code with 100% local storage, scriptless testing, Git Sync for team collaboration, GraphQL support, and an advanced CLI for CI/CD integration. Thunder Client supports importing collections from Postman, Insomnia, Hoppscotch, and OpenAPI 3.0, and offers pre/post-request scripting and environment variables.
 
-- **Human URL:** [https://www.thunderclient.com](https://www.thunderclient.com)
-- **Version:** 2.40.10
+**Areas:** API Client · API Testing · CI/CD · CLI · Collection · GraphQL · REST Client · VS Code
 
-## Description
+## Thunder Client on APIs.io
 
-Thunder Client supports importing collections from Postman, Insomnia, Hoppscotch, and OpenAPI 3.0, and offers pre/post-request scripting and environment variables. The CLI (@thunderclient/cli) enables CI/CD integration with support for parallel execution and multiple report formats (CLI, CSV, HTML, JSON, XML, NUnit).
+Everything profiled for Thunder Client is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/thunder-client/](https://apis.io/providers/thunder-client/)** — or go straight to one of the APIs or properties below.
 
-## Links
+### APIs (2)
 
+- [Thunder Client](https://apis.io/apis/thunder-client/thunder-client/) — Thunder Client is the flagship VS Code REST API client extension offering a lightweight GUI for sending HTTP requests, managing collections with environment…
+- [Thunder Client CLI](https://apis.io/apis/thunder-client/thunder-client-cli/) — The Thunder Client CLI (@thunderclient/cli) is a Node.js command-line tool for running Thunder Client requests, collections, and cURL commands from the…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### GraphQL (1)
+
+GraphQL schemas.
+
+- [Thunder Client GraphQL API](https://apis.io/graphqls/thunder-client/thunder-client-graphql/)
+
+#### JSON Schema (2)
+
+The data models the API reads and writes.
+
+- [Thunder Client Collection](https://apis.io/schemas/thunder-client/thunder-client-collection/)
+- [Thunder Client Environment](https://apis.io/schemas/thunder-client/thunder-client-environment/)
+
+#### JSON Structure (1)
+
+Data models expressed in JSON Structure.
+
+- [Thunder Client Collection Structure](https://apis.io/json-structure/thunder-client/thunder-client-collection-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Thunder Client Context](https://apis.io/jsonld/thunder-client/thunder-client-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Thunder Client Vocabulary](https://apis.io/vocabularies/thunder-client/thunder-client-vocabulary/)
+
+#### Examples (2)
+
+Example requests and responses.
+
+- [Thunder Client Collection Example](https://apis.io/examples/thunder-client/thunder-client-collection-example/)
+- [Thunder Client Environment Example](https://apis.io/examples/thunder-client/thunder-client-environment-example/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Thunder Client — jsonschema rules](https://apis.io/rules/thunder-client/thunder-client-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Thunder Client Domain Security](https://apis.io/security/thunder-client/thunder-client-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Thunder Client Plans Pricing](https://apis.io/plans/thunder-client/thunder-client-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Thunder Client Rate Limits](https://apis.io/rate-limits/thunder-client/thunder-client-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Thunder Client Finops](https://apis.io/finops/thunder-client/thunder-client-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.thunderclient.com)
 - [Documentation](https://docs.thunderclient.com/)
-- [Getting Started](https://docs.thunderclient.com/get-started)
-- [CLI Documentation](https://docs.thunderclient.com/cli)
-- [Scripting API Reference](https://docs.thunderclient.com/scripting/api)
-- [GitHub Support](https://github.com/thunderclient/thunder-client-support)
-- [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
 - [Pricing](https://www.thunderclient.com/pricing)
-- [npm CLI Package](https://www.npmjs.com/package/@thunderclient/cli)
 - [Changelog](https://github.com/thunderclient/thunder-client-support/releases)
+- [Blog](https://medium.com/thunderclient)
 
-## APIs
+## API Evangelist rating
 
-| API | Description |
-|-----|-------------|
-| Thunder Client | VS Code REST API client extension with collections, environments, scriptless testing, and Git Sync |
-| Thunder Client CLI | Node.js CLI tool for running requests and collections from the terminal with CI/CD support |
+**Kin Score 23.8** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-## CLI Quick Reference
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 14.7 |
+| Contract governance | 23.5 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 18.4 |
 
-```bash
-# Install the CLI
-npm i -g @thunderclient/cli
+**Agent readiness 0.6** — human-only
 
-# List all collections
-tc list
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-# List requests in a collection
-tc list 'myCollection'
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
 
-# Run a collection
-tc --col 'myCollection'
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/thunder-client/](https://apis.io/providers/thunder-client/).
 
-# Run all collections
-tc --col all
+## How this profile is made
 
-# Run with concurrency
-tc --col 'myCollection' --concurrent 5
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-# Stop on first failure
-tc --col 'myCollection' --stop-on-fail
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Thunder Client: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-# Run a folder within a collection
-tc --fol 'myFolder'
+## Open an issue
 
-# List all environments
-tc list env
-```
-
-## Pricing
-
-| Tier | Price | Features |
-|------|-------|----------|
-| Free | $0/month | Basic local usage, limited collection runs |
-| Pro | $3/month | Team sync, collections sharing, environment sharing |
-| Enterprise | $16/user/month | Unlimited collection runs, full team management |
-
-## Artifacts
-
-### JSON Schema
-
-| File | Description |
-|------|-------------|
-| [thunder-client-collection-schema.json](json-schema/thunder-client-collection-schema.json) | JSON Schema for Thunder Client collection files covering requests, folders, headers, auth, body, and test assertions |
-| [thunder-client-environment-schema.json](json-schema/thunder-client-environment-schema.json) | JSON Schema for Thunder Client environment files with variable definitions |
-
-### JSON Structure
-
-| File | Description |
-|------|-------------|
-| [thunder-client-collection-structure.json](json-structure/thunder-client-collection-structure.json) | Structural documentation for all Thunder Client data models |
-
-### JSON-LD Context
-
-| File | Description |
-|------|-------------|
-| [thunder-client-context.jsonld](json-ld/thunder-client-context.jsonld) | JSON-LD context mapping Thunder Client vocabulary to linked data semantics |
-
-### Examples
-
-| File | Description |
-|------|-------------|
-| [thunder-client-collection-example.json](examples/thunder-client-collection-example.json) | Example Thunder Client collection demonstrating requests, folders, auth, body, and test assertions |
-| [thunder-client-environment-example.json](examples/thunder-client-environment-example.json) | Example Thunder Client environment with variable definitions |
-
-### Vocabulary
-
-| File | Description |
-|------|-------------|
-| [thunder-client-vocabulary.yml](vocabulary/thunder-client-vocabulary.yml) | Domain vocabulary covering requests, collections, environments, CLI commands, testing, and pricing concepts |
-
-## Tags
-
-API Client, API Testing, CI/CD, CLI, Collections, GraphQL, REST Client, VS Code
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/thunder-client/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
